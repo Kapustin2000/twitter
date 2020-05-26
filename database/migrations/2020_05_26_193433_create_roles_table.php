@@ -33,7 +33,7 @@ class CreateRolesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('role_ability', function (Blueprint $table) {
+        Schema::create('ability_role', function (Blueprint $table) {
             $table->id();
             $table->foreignId('ability_id')->constrained()->onDelete('cascade');
             $table->foreignId('role_id')->constrained()->onDelete('cascade');

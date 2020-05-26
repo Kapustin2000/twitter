@@ -24,7 +24,7 @@ class RolesSeeder extends Seeder
             ]
         );
 
-        DB::table('role_ability')->insert(
+        DB::table('ability_role')->insert(
             [
                 [
                     'role_id' => 1,
