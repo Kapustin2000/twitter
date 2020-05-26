@@ -12,7 +12,9 @@ trait HasRoles
 
     public function abilities()
     {
-        return $this->roles()->map->abilities->flatten();
+        return $this->roles
+            ->map->abilities
+            ->flatten()->pluck('name')->unique();
     }
  
 }
