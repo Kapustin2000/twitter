@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\FollowAble;
 use App\Traits\HasRoles;
 use App\Traits\HasTweets;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -10,7 +11,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasRoles, HasTweets;
+    use Notifiable, HasRoles, HasTweets, FollowAble;
 
     /**
      * The attributes that are mass assignable.
