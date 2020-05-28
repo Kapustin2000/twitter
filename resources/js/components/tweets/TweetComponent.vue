@@ -1,18 +1,16 @@
 <template>
-    <div class="container">
-        <div>
-            <div class="border border-gray-300 rounded-lg" v-for="tweet in tweetsData">
+
                 <div class="flex p-4 border-b border-b-gray-400">
                     <div class="mr-2 flex-shrink-0">
-                        <a :href="'/profile/'+ tweet.user.userName">
+                        <a :href="'/profile/'+ user.userName">
                             <img src="http://127.0.0.1:8000/images/default-avatar.jpeg" alt="" class="rounded-full mr-2" width="50" height="50">
                         </a>
                     </div>
 
                     <div>
                         <h5 class="font-bold mb-2">
-                            <a :href="'/profile/'+ tweet.user.userName">
-                                {{tweet.user.name}}
+                            <a :href="'/profile/'+ user.userName">
+                                {{user.name}}
                             </a>
                         </h5>
 
@@ -58,35 +56,13 @@
 
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
 </template>
 
 <script>
     export default {
         props: [
-           'tweets',
-           'profile'
+           'tweet',
+           'user'
         ],
-        data(){
-            return{
-                tweetsData: []
-            }
-        },
-        mounted() {
-            console.log(
-                    this.tweets,
-                    this.profile
-            );
-            let vm = this;
-            if(this.tweets){
-                this.tweetsData = this.tweets;
-            }
-
-            bus.$on('new-tweet', function (tweet) {
-                vm.tweetsData.unshift(tweet);
-            });
-        }
     }
 </script>

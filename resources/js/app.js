@@ -7,8 +7,9 @@ const axios = require('axios').default;
 window.bus = new Vue();
 
 
-Vue.component('tweets', require('./components/tweets/TweetsComponent.vue').default);
+Vue.component('tweets-wall', require('./components/tweets/TweetsWallComponent.vue').default);
 Vue.component('tweet-create', require('./components/tweets/TweetCreateComponent.vue').default);
+Vue.component('tweet', require('./components/tweets/TweetComponent.vue').default);
 
 
 Vue.component('profile-show', require('./components/profile/ProfileShowComponent.vue').default);

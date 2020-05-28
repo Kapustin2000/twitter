@@ -1,14 +1,4 @@
 <template>
-    <!--<div class="container">-->
-         <!--{{user.name}}-->
-         <!--<a :href="path + '/edit'" v-if="user.id === authUser.id">-->
-             <!--Edit-->
-         <!--</a>-->
-        <!--<button v-else @click="toggleFollow">-->
-            <!--<span v-if="isFollowingData">Unfollow</span>-->
-            <!--<span v-else>Follow</span>-->
-        <!--</button>-->
-    <!--</div>-->
     <div>
         <header class="mb-6 relative">
             <div class="relative">
@@ -57,9 +47,6 @@
 
 
         </header>
-
-
-        <tweets :tweets="user.tweets" :profile="true"></tweets>
     </div>
 </template>
 
