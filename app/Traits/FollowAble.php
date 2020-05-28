@@ -18,7 +18,7 @@ trait FollowAble
 
     public function follow(User $user)
     {
-        return $this->follows->toggle($user);
+        return $this->follows()->toggle($user);
     }
 
     public function following(User $user)

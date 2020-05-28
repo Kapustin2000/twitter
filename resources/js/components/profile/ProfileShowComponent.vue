@@ -1,10 +1,13 @@
 <template>
     <div class="container">
          {{user.name}}
-         <button>
-             <span v-if="isFollowingData">Unfollow</span>
-             <span v-else>Follow</span>
-         </button>
+         <a :href="path + '/edit'" v-if="user.id === authUser.id">
+             Edit
+         </a>
+        <button v-else @click="toggleFollow">
+            <span v-if="isFollowingData">Unfollow</span>
+            <span v-else>Follow</span>
+        </button>
     </div>
 </template>
 
@@ -18,6 +21,7 @@
         data(){
             return {
                 isFollowingData: false,
+                path: window.location
             };
         },
         mounted() {
@@ -26,7 +30,17 @@
             }
         },
         methods: {
+            toggleFollow: function () {
+                let vm = this;
 
+                axios.post( vm.path +'/follow')
+                        .then(function (response) {
+                            vm.isFollowingData = !vm.isFollowingData;
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        })
+            }
         }
     }
 </script>

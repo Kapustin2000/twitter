@@ -1918,11 +1918,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['user', 'authUser', 'isFollowing'],
   data: function data() {
     return {
-      isFollowingData: false
+      isFollowingData: false,
+      path: window.location
     };
   },
   mounted: function mounted() {
@@ -1930,7 +1934,16 @@ __webpack_require__.r(__webpack_exports__);
       this.isFollowingData = this.isFollowing;
     }
   },
-  methods: {}
+  methods: {
+    toggleFollow: function toggleFollow() {
+      var vm = this;
+      axios.post(vm.path + '/follow').then(function (response) {
+        vm.isFollowingData = !vm.isFollowingData;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -37566,11 +37579,15 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _vm._v("\n     " + _vm._s(_vm.user.name) + "\n     "),
-    _c("button", [
-      _vm.isFollowingData
-        ? _c("span", [_vm._v("Unfollow")])
-        : _c("span", [_vm._v("Follow")])
-    ])
+    _vm.user.id === _vm.authUser.id
+      ? _c("a", { attrs: { href: _vm.path + "/edit" } }, [
+          _vm._v("\n         Edit\n     ")
+        ])
+      : _c("button", { on: { click: _vm.toggleFollow } }, [
+          _vm.isFollowingData
+            ? _c("span", [_vm._v("Unfollow")])
+            : _c("span", [_vm._v("Follow")])
+        ])
   ])
 }
 var staticRenderFns = []
