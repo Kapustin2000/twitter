@@ -19,9 +19,6 @@
         props: [
             'users',
         ],
-        data(){
-
-        },
         mounted() {
 
         },
