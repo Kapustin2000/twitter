@@ -33,5 +33,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/profile/{user:userName}/follow', 'FollowController@store');
 
 
+    Route::get('/explore', 'ExploreController');
+
 });
 
