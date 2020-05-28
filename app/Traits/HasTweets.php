@@ -12,9 +12,9 @@ trait HasTweets
     public function timeLine(){
         $following = $this->follows->pluck('id');
 
-        return Tweet::whereIn('id',$following)
-            ->with('user')
+        return Tweet::whereIn('user_id',$following)
             ->orWhere('user_id', $this->id)
+            ->with('user')
             ->orderByDesc('id')
             ->get();
     }
