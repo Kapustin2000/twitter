@@ -12,5 +12,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
          $this->call(RolesSeeder::class);
+
+        factory(App\Models\User::class, 5)->create()->each(function($user) {
+            $user->tweets()->saveMany(factory(App\Models\Tweet::class, 10)->make());
+        });
+        
     }
 }
