@@ -1922,11 +1922,23 @@ __webpack_require__.r(__webpack_exports__);
   props: ['route', 'csrf'],
   data: function data() {
     return {
-      tweetsData: []
+      tweetsData: [],
+      tweet: null
     };
   },
-  mounted: function mounted() {
-    console.log(this.route);
+  mounted: function mounted() {},
+  methods: {
+    onFormSubmit: function onFormSubmit() {
+      var vm = this;
+      axios.post(vm.route, {
+        tweet: vm.tweet
+      }).then(function (response) {
+        vm.tweet = null;
+        bus.$emit('new-tweet', response.data);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
   }
 });
 
@@ -1958,9 +1970,15 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
+    var vm = this;
+
     if (this.tweets) {
       this.tweetsData = this.tweets;
     }
+
+    bus.$on('new-tweet', function (tweet) {
+      vm.tweetsData.unshift(tweet);
+    });
   }
 });
 
@@ -37510,18 +37528,47 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("form", { attrs: { method: "post", action: _vm.route } }, [
-      _c("input", {
-        attrs: { type: "hidden", name: "_token" },
-        domProps: { value: _vm.csrf }
-      }),
-      _vm._v(" "),
-      _c("input", {
-        attrs: { type: "text", name: "tweet", placeholder: "New Tweet" }
-      }),
-      _vm._v(" "),
-      _c("input", { attrs: { type: "submit", value: "Submit" } })
-    ])
+    _c(
+      "form",
+      {
+        attrs: { method: "post" },
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.onFormSubmit($event)
+          }
+        }
+      },
+      [
+        _c("input", {
+          attrs: { type: "hidden", name: "_token" },
+          domProps: { value: _vm.csrf }
+        }),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.tweet,
+              expression: "tweet"
+            }
+          ],
+          attrs: { type: "text", name: "tweet", placeholder: "New Tweet" },
+          domProps: { value: _vm.tweet },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.tweet = $event.target.value
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c("input", { attrs: { type: "submit", value: "Submit" } })
+      ]
+    )
   ])
 }
 var staticRenderFns = []
@@ -49739,32 +49786,15 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")["default"];
+
+window.bus = new Vue();
 Vue.component('tweets', __webpack_require__(/*! ./components/tweets/TweetsComponent.vue */ "./resources/js/components/tweets/TweetsComponent.vue")["default"]);
 Vue.component('tweet-create', __webpack_require__(/*! ./components/tweets/TweetCreateComponent.vue */ "./resources/js/components/tweets/TweetCreateComponent.vue")["default"]);
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
 var app = new Vue({
   el: '#app'
 });

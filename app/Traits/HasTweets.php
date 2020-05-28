@@ -14,7 +14,7 @@ trait HasTweets
 
         return Tweet::whereIn('id',$following)
             ->with('user')
-            ->orWhere('id', $this->id)
+            ->orWhere('user_id', $this->id)
             ->orderByDesc('id')
             ->get();
     }

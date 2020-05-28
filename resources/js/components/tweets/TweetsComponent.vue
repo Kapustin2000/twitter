@@ -18,9 +18,14 @@
             }
         },
         mounted() {
+            let vm = this;
             if(this.tweets){
                 this.tweetsData = this.tweets;
             }
+
+            bus.$on('new-tweet', function (tweet) {
+                vm.tweetsData.unshift(tweet);
+            });
         }
     }
 </script>
