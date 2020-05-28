@@ -17,64 +17,67 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+<div id="app">
+    <section class="px-8 py-4 mb-6">
+        <header class="container mx-auto">
+            <h1>
+                <a href="/tweets">
+                    <img
+                            src="/images/logo.svg"
+                            alt="Tweety"
+                    >
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            </h1>
+        </header>
+    </section>
+    <section class="px-8">
+        <main class="container mx-auto">
+            <div class="lg:flex lg:justify-center">
+                <div class="lg:w-32">
+                    <ul>
+                        <li>
+                            <a class="font-bold text-lg mb-4 block" href="http://127.0.0.1:8000/tweets">
+                                Home
+                            </a>
+                        </li>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                        <li>
+                            <a class="font-bold text-lg mb-4 block" href="/explore">
+                                Explore
+                            </a>
+                        </li>
 
-                    </ul>
+                        <li>
+                            <a class="font-bold text-lg mb-4 block" href="http://127.0.0.1:8000/profiles/sss">
+                                Profile
+                            </a>
+                        </li>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
+                        <li>
+                            <form method="POST" action="/logout">
+                                <input type="hidden" name="_token" value="Az0KpG2hep1ilhYpZbjSy1itdCfClDXCv0JwIbEy">
+                                <button class="font-bold text-lg">Logout</button>
+                            </form>
+                        </li>
                     </ul>
                 </div>
-            </div>
-        </nav>
 
-        <main class="py-4">
-            @yield('content')
+                <div class="lg:flex-1 lg:mx-10 lg:mb-10" style="max-width: 700px">
+                    @yield('content')
+                </div>
+
+                @auth
+                <div class="lg:w-1/6">
+                    <friends-sidebar></friends-sidebar>
+                </div>
+                @endauth
+            </div>
         </main>
-    </div>
+    </section>
+</div>
+
 </body>
 </html>

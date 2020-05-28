@@ -1899,6 +1899,42 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/friends/FriendsSidebarComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/friends/FriendsSidebarComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/profile/ProfileShowComponent.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/profile/ProfileShowComponent.vue?vue&type=script&lang=js& ***!
@@ -1908,6 +1944,55 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1967,6 +2052,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['route', 'csrf'],
   data: function data() {
@@ -2002,6 +2104,69 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -37562,6 +37727,77 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/friends/FriendsSidebarComponent.vue?vue&type=template&id=1ed4f2be&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/friends/FriendsSidebarComponent.vue?vue&type=template&id=1ed4f2be& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "bg-gray-200 border border-gray-300 rounded-lg py-4 px-6"
+      },
+      [
+        _c("h3", { staticClass: "font-bold text-xl mb-4" }, [
+          _vm._v("Following")
+        ]),
+        _vm._v(" "),
+        _c("ul", [
+          _c("li", [_vm._v("No friends yet!")]),
+          _vm._v(" "),
+          _c("li", [
+            _c("div", [
+              _c(
+                "a",
+                {
+                  staticClass: "flex items-center text-sm",
+                  attrs: { href: "http://127.0.0.1:8000/profiles/sss12" }
+                },
+                [
+                  _c("img", {
+                    staticClass: "rounded-full mr-2",
+                    attrs: {
+                      src: "http://127.0.0.1:8000/images/default-avatar.jpeg",
+                      alt: "",
+                      width: "40",
+                      height: "40"
+                    }
+                  }),
+                  _vm._v(
+                    "\n\n                    admin1213@email.com\n                "
+                  )
+                ]
+              )
+            ])
+          ])
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/profile/ProfileShowComponent.vue?vue&type=template&id=59011930&":
 /*!*******************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/profile/ProfileShowComponent.vue?vue&type=template&id=59011930& ***!
@@ -37577,20 +37813,82 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _vm._v("\n     " + _vm._s(_vm.user.name) + "\n     "),
-    _vm.user.id === _vm.authUser.id
-      ? _c("a", { attrs: { href: _vm.path + "/edit" } }, [
-          _vm._v("\n         Edit\n     ")
+  return _c("div", [
+    _c("header", { staticClass: "mb-6 relative" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex justify-between items-center mb-6" }, [
+        _c("div", { staticStyle: { "max-width": "270px" } }, [
+          _c("h2", { staticClass: "font-bold text-2xl mb-0" }, [
+            _vm._v(_vm._s(_vm.user.name))
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "text-sm" }, [
+            _vm._v("Joined " + _vm._s(_vm.user.created_at))
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex" }, [
+          _vm.user.id === _vm.authUser.id
+            ? _c(
+                "a",
+                {
+                  staticClass:
+                    "rounded-full border border-gray-300 py-2 px-4 text-black text-xs mr-2",
+                  attrs: { href: _vm.path + "/edit" }
+                },
+                [_vm._v("\n                    Edit Profile\n                ")]
+              )
+            : _c(
+                "a",
+                {
+                  staticClass:
+                    "rounded-full border border-gray-300 py-2 px-4 text-black text-xs mr-2",
+                  attrs: { href: _vm.path + "/edit" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.toggleFollow($event)
+                    }
+                  }
+                },
+                [_vm._v("\n                    Follow\n                ")]
+              )
         ])
-      : _c("button", { on: { click: _vm.toggleFollow } }, [
-          _vm.isFollowingData
-            ? _c("span", [_vm._v("Unfollow")])
-            : _c("span", [_vm._v("Follow")])
-        ])
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "text-sm" }, [
+        _vm._v(
+          '\n            The name’s Bugs. Bugs Bunny. Don’t wear it out. Bugs is an anthropomorphic gray\n            and white rabbit or hare who is famous for his flippant, insouciant personality.\n            He is also characterized by a Brooklyn accent, his portrayal as a trickster,\n            and his catch phrase "Eh...What\'s up, doc?"\n        '
+        )
+      ])
+    ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "relative" }, [
+      _c("img", {
+        staticClass: "mb-2",
+        attrs: { src: "/images/default-profile-banner.jpg", alt: "" }
+      }),
+      _vm._v(" "),
+      _c("img", {
+        staticClass:
+          "rounded-full mr-2 absolute bottom-0 transform -translate-x-1/2 translate-y-1/2",
+        staticStyle: { left: "50%" },
+        attrs: {
+          src: "http://127.0.0.1:8000/images/default-avatar.jpeg",
+          alt: "",
+          width: "150"
+        }
+      })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -37614,49 +37912,68 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c(
-      "form",
-      {
-        attrs: { method: "post" },
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.onFormSubmit($event)
-          }
-        }
-      },
+      "div",
+      { staticClass: "border border-blue-400 rounded-lg px-8 py-6 mb-8" },
       [
-        _c("input", {
-          attrs: { type: "hidden", name: "_token" },
-          domProps: { value: _vm.csrf }
-        }),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.tweet,
-              expression: "tweet"
-            }
-          ],
-          attrs: { type: "text", name: "tweet", placeholder: "New Tweet" },
-          domProps: { value: _vm.tweet },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+        _c(
+          "form",
+          {
+            attrs: { method: "POST" },
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.onFormSubmit($event)
               }
-              _vm.tweet = $event.target.value
             }
-          }
-        }),
-        _vm._v(" "),
-        _c("input", { attrs: { type: "submit", value: "Submit" } })
+          },
+          [
+            _c("textarea", {
+              staticClass: "w-full",
+              attrs: {
+                name: "body",
+                placeholder: "What's up doc?",
+                required: "required",
+                autofocus: "autofocus"
+              }
+            }),
+            _vm._v(" "),
+            _c("hr", { staticClass: "my-4" }),
+            _vm._v(" "),
+            _vm._m(0)
+          ]
+        )
       ]
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", { staticClass: "flex justify-between items-center" }, [
+      _c("img", {
+        staticClass: "rounded-full mr-2",
+        attrs: {
+          src: "http://127.0.0.1:8000/images/default-avatar.jpeg",
+          alt: "your avatar",
+          width: "50",
+          height: "50"
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass:
+            "bg-blue-500 hover:bg-blue-600 rounded-lg shadow px-10 text-sm text-white h-10",
+          attrs: { type: "submit" }
+        },
+        [_vm._v("\n                    Publish\n                ")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -37678,19 +37995,191 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    _vm._l(_vm.tweetsData, function(tweet) {
-      return _c("div", [
-        _vm._v("\n         " + _vm._s(tweet.body) + "\n         "),
-        !_vm.profile ? _c("p", [_vm._v(_vm._s(tweet.user.name))]) : _vm._e(),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(tweet.name))])
-      ])
-    }),
-    0
-  )
+  return _c("div", { staticClass: "container" }, [
+    _c(
+      "div",
+      _vm._l(_vm.tweetsData, function(tweet) {
+        return _c("div", { staticClass: "border border-gray-300 rounded-lg" }, [
+          _c("div", { staticClass: "flex p-4 border-b border-b-gray-400" }, [
+            _c("div", { staticClass: "mr-2 flex-shrink-0" }, [
+              _c("a", { attrs: { href: "/profile/" + tweet.user.userName } }, [
+                _c("img", {
+                  staticClass: "rounded-full mr-2",
+                  attrs: {
+                    src: "http://127.0.0.1:8000/images/default-avatar.jpeg",
+                    alt: "",
+                    width: "50",
+                    height: "50"
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("h5", { staticClass: "font-bold mb-2" }, [
+                _c(
+                  "a",
+                  { attrs: { href: "/profile/" + tweet.user.userName } },
+                  [
+                    _vm._v(
+                      "\n                            " +
+                        _vm._s(tweet.user.name) +
+                        "\n                        "
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "text-sm mb-3" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(tweet.body) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex" }, [
+                _c(
+                  "form",
+                  { attrs: { method: "POST", action: "/tweets/3/like" } },
+                  [
+                    _c("input", {
+                      attrs: {
+                        type: "hidden",
+                        name: "_token",
+                        value: "Az0KpG2hep1ilhYpZbjSy1itdCfClDXCv0JwIbEy"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "flex items-center mr-4 text-gray-500" },
+                      [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "mr-1 w-3",
+                            attrs: { viewBox: "0 0 20 20" }
+                          },
+                          [
+                            _c(
+                              "g",
+                              {
+                                attrs: {
+                                  id: "Page-1",
+                                  stroke: "none",
+                                  "stroke-width": "1",
+                                  fill: "none",
+                                  "fill-rule": "evenodd"
+                                }
+                              },
+                              [
+                                _c("g", { staticClass: "fill-current" }, [
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M11.0010436,0 C9.89589787,0 9.00000024,0.886706352 9.0000002,1.99810135 L9,8 L1.9973917,8 C0.894262725,8 0,8.88772964 0,10 L0,12 L2.29663334,18.1243554 C2.68509206,19.1602453 3.90195042,20 5.00853025,20 L12.9914698,20 C14.1007504,20 15,19.1125667 15,18.000385 L15,10 L12,3 L12,0 L11.0010436,0 L11.0010436,0 Z M17,10 L20,10 L20,20 L17,20 L17,10 L17,10 Z",
+                                      id: "Fill-97"
+                                    }
+                                  })
+                                ])
+                              ]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          { staticClass: "text-xs", attrs: { type: "submit" } },
+                          [
+                            _vm._v(
+                              "\n                                    0\n                                "
+                            )
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "form",
+                  { attrs: { method: "POST", action: "/tweets/3/like" } },
+                  [
+                    _c("input", {
+                      attrs: {
+                        type: "hidden",
+                        name: "_token",
+                        value: "Az0KpG2hep1ilhYpZbjSy1itdCfClDXCv0JwIbEy"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("input", {
+                      attrs: {
+                        type: "hidden",
+                        name: "_method",
+                        value: "DELETE"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "flex items-center text-gray-500" },
+                      [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "mr-1 w-3",
+                            attrs: { viewBox: "0 0 20 20" }
+                          },
+                          [
+                            _c(
+                              "g",
+                              {
+                                attrs: {
+                                  id: "Page-1",
+                                  stroke: "none",
+                                  "stroke-width": "1",
+                                  fill: "none",
+                                  "fill-rule": "evenodd"
+                                }
+                              },
+                              [
+                                _c("g", { staticClass: "fill-current" }, [
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M11.0010436,20 C9.89589787,20 9.00000024,19.1132936 9.0000002,18.0018986 L9,12 L1.9973917,12 C0.894262725,12 0,11.1122704 0,10 L0,8 L2.29663334,1.87564456 C2.68509206,0.839754676 3.90195042,8.52651283e-14 5.00853025,8.52651283e-14 L12.9914698,8.52651283e-14 C14.1007504,8.52651283e-14 15,0.88743329 15,1.99961498 L15,10 L12,17 L12,20 L11.0010436,20 L11.0010436,20 Z M17,10 L20,10 L20,0 L17,0 L17,10 L17,10 Z",
+                                      id: "Fill-97"
+                                    }
+                                  })
+                                ])
+                              ]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          { staticClass: "text-xs", attrs: { type: "submit" } },
+                          [
+                            _vm._v(
+                              "\n                                    0\n                                "
+                            )
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ])
+            ])
+          ])
+        ])
+      }),
+      0
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -49878,6 +50367,7 @@ window.bus = new Vue();
 Vue.component('tweets', __webpack_require__(/*! ./components/tweets/TweetsComponent.vue */ "./resources/js/components/tweets/TweetsComponent.vue")["default"]);
 Vue.component('tweet-create', __webpack_require__(/*! ./components/tweets/TweetCreateComponent.vue */ "./resources/js/components/tweets/TweetCreateComponent.vue")["default"]);
 Vue.component('profile-show', __webpack_require__(/*! ./components/profile/ProfileShowComponent.vue */ "./resources/js/components/profile/ProfileShowComponent.vue")["default"]);
+Vue.component('friends-sidebar', __webpack_require__(/*! ./components/friends/FriendsSidebarComponent.vue */ "./resources/js/components/friends/FriendsSidebarComponent.vue")["default"]);
 var app = new Vue({
   el: '#app'
 });
@@ -49926,6 +50416,75 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/friends/FriendsSidebarComponent.vue":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/friends/FriendsSidebarComponent.vue ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _FriendsSidebarComponent_vue_vue_type_template_id_1ed4f2be___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FriendsSidebarComponent.vue?vue&type=template&id=1ed4f2be& */ "./resources/js/components/friends/FriendsSidebarComponent.vue?vue&type=template&id=1ed4f2be&");
+/* harmony import */ var _FriendsSidebarComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FriendsSidebarComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/friends/FriendsSidebarComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _FriendsSidebarComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FriendsSidebarComponent_vue_vue_type_template_id_1ed4f2be___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _FriendsSidebarComponent_vue_vue_type_template_id_1ed4f2be___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/friends/FriendsSidebarComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/friends/FriendsSidebarComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/friends/FriendsSidebarComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendsSidebarComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./FriendsSidebarComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/friends/FriendsSidebarComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendsSidebarComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/friends/FriendsSidebarComponent.vue?vue&type=template&id=1ed4f2be&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/components/friends/FriendsSidebarComponent.vue?vue&type=template&id=1ed4f2be& ***!
+  \****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendsSidebarComponent_vue_vue_type_template_id_1ed4f2be___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./FriendsSidebarComponent.vue?vue&type=template&id=1ed4f2be& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/friends/FriendsSidebarComponent.vue?vue&type=template&id=1ed4f2be&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendsSidebarComponent_vue_vue_type_template_id_1ed4f2be___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendsSidebarComponent_vue_vue_type_template_id_1ed4f2be___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 

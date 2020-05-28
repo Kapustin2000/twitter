@@ -13,6 +13,7 @@ Vue.component('tweet-create', require('./components/tweets/TweetCreateComponent.
 
 Vue.component('profile-show', require('./components/profile/ProfileShowComponent.vue').default);
 
+Vue.component('friends-sidebar', require('./components/friends/FriendsSidebarComponent.vue').default);
 
  
 const app = new Vue({
