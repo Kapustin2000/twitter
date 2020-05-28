@@ -2006,6 +2006,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['user', 'authUser', 'isFollowing'],
   data: function data() {
@@ -2063,18 +2066,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['route', 'csrf'],
   data: function data() {
     return {
       tweetsData: [],
-      tweet: null
+      body: null
     };
   },
   mounted: function mounted() {},
@@ -2082,9 +2079,9 @@ __webpack_require__.r(__webpack_exports__);
     onFormSubmit: function onFormSubmit() {
       var vm = this;
       axios.post(vm.route, {
-        tweet: vm.tweet
+        body: vm.body
       }).then(function (response) {
-        vm.tweet = null;
+        vm.body = null;
         bus.$emit('new-tweet', response.data);
       })["catch"](function (error) {
         console.log(error);
@@ -2169,14 +2166,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['tweets', 'profile'],
   data: function data() {
@@ -2185,6 +2174,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
+    console.log(this.tweets, this.profile);
     var vm = this;
 
     if (this.tweets) {
@@ -37813,57 +37803,67 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("header", { staticClass: "mb-6 relative" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "flex justify-between items-center mb-6" }, [
-        _c("div", { staticStyle: { "max-width": "270px" } }, [
-          _c("h2", { staticClass: "font-bold text-2xl mb-0" }, [
-            _vm._v(_vm._s(_vm.user.name))
+  return _c(
+    "div",
+    [
+      _c("header", { staticClass: "mb-6 relative" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex justify-between items-center mb-6" }, [
+          _c("div", { staticStyle: { "max-width": "270px" } }, [
+            _c("h2", { staticClass: "font-bold text-2xl mb-0" }, [
+              _vm._v(_vm._s(_vm.user.name))
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-sm" }, [
+              _vm._v("Joined " + _vm._s(_vm.user.created_at))
+            ])
           ]),
           _vm._v(" "),
-          _c("p", { staticClass: "text-sm" }, [
-            _vm._v("Joined " + _vm._s(_vm.user.created_at))
+          _c("div", { staticClass: "flex" }, [
+            _vm.user.id === _vm.authUser.id
+              ? _c(
+                  "a",
+                  {
+                    staticClass:
+                      "rounded-full border border-gray-300 py-2 px-4 text-black text-xs mr-2",
+                    attrs: { href: _vm.path + "/edit" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                    Edit Profile\n                "
+                    )
+                  ]
+                )
+              : _c(
+                  "a",
+                  {
+                    staticClass:
+                      "rounded-full border border-gray-300 py-2 px-4 text-black text-xs mr-2",
+                    attrs: { href: _vm.path + "/edit" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.toggleFollow($event)
+                      }
+                    }
+                  },
+                  [_vm._v("\n                    Follow\n                ")]
+                )
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "flex" }, [
-          _vm.user.id === _vm.authUser.id
-            ? _c(
-                "a",
-                {
-                  staticClass:
-                    "rounded-full border border-gray-300 py-2 px-4 text-black text-xs mr-2",
-                  attrs: { href: _vm.path + "/edit" }
-                },
-                [_vm._v("\n                    Edit Profile\n                ")]
-              )
-            : _c(
-                "a",
-                {
-                  staticClass:
-                    "rounded-full border border-gray-300 py-2 px-4 text-black text-xs mr-2",
-                  attrs: { href: _vm.path + "/edit" },
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      return _vm.toggleFollow($event)
-                    }
-                  }
-                },
-                [_vm._v("\n                    Follow\n                ")]
-              )
+        _c("p", { staticClass: "text-sm" }, [
+          _vm._v(
+            '\n            The name’s Bugs. Bugs Bunny. Don’t wear it out. Bugs is an anthropomorphic gray\n            and white rabbit or hare who is famous for his flippant, insouciant personality.\n            He is also characterized by a Brooklyn accent, his portrayal as a trickster,\n            and his catch phrase "Eh...What\'s up, doc?"\n        '
+          )
         ])
       ]),
       _vm._v(" "),
-      _c("p", { staticClass: "text-sm" }, [
-        _vm._v(
-          '\n            The name’s Bugs. Bugs Bunny. Don’t wear it out. Bugs is an anthropomorphic gray\n            and white rabbit or hare who is famous for his flippant, insouciant personality.\n            He is also characterized by a Brooklyn accent, his portrayal as a trickster,\n            and his catch phrase "Eh...What\'s up, doc?"\n        '
-        )
-      ])
-    ])
-  ])
+      _c("tweets", { attrs: { tweets: _vm.user.tweets, profile: true } })
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -37928,12 +37928,29 @@ var render = function() {
           },
           [
             _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.body,
+                  expression: "body"
+                }
+              ],
               staticClass: "w-full",
               attrs: {
                 name: "body",
                 placeholder: "What's up doc?",
                 required: "required",
                 autofocus: "autofocus"
+              },
+              domProps: { value: _vm.body },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.body = $event.target.value
+                }
               }
             }),
             _vm._v(" "),

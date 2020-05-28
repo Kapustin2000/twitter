@@ -1,13 +1,5 @@
 <template>
     <div class="container">
-         <!--<div v-for="tweet in tweetsData">-->
-             <!--{{tweet.body}}-->
-             <!--<p v-if="!profile">{{tweet.user.name}}</p>-->
-             <!--<p>{{tweet.name}}</p>-->
-         <!--</div>-->
-
-
-
         <div>
             <div class="border border-gray-300 rounded-lg" v-for="tweet in tweetsData">
                 <div class="flex p-4 border-b border-b-gray-400">
@@ -83,6 +75,10 @@
             }
         },
         mounted() {
+            console.log(
+                    this.tweets,
+                    this.profile
+            );
             let vm = this;
             if(this.tweets){
                 this.tweetsData = this.tweets;

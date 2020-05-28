@@ -57,6 +57,9 @@
 
 
         </header>
+
+
+        <tweets :tweets="user.tweets" :profile="true"></tweets>
     </div>
 </template>
 

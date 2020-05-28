@@ -1,15 +1,9 @@
 <template>
     <div class="container">
-        <!--<form method="post" @submit.prevent="onFormSubmit">-->
-            <!--<input type="hidden" name="_token" :value="csrf">-->
-            <!--<input v-model="tweet" type="text" name="tweet" placeholder="New Tweet">-->
-            <!--<input type="submit" value="Submit">-->
-        <!--</form>-->
-
         <div class="border border-blue-400 rounded-lg px-8 py-6 mb-8">
             <form method="POST" @submit.prevent="onFormSubmit">
                 <textarea
-                    name="body" placeholder="What's up doc?" required="required" autofocus="autofocus"
+                    name="body" placeholder="What's up doc?" v-model="body" required="required" autofocus="autofocus"
                     class="w-full"></textarea>
                 <hr class="my-4">
                 <footer class="flex justify-between items-center"><img
@@ -34,7 +28,7 @@
         data(){
             return {
                 tweetsData: [],
-                tweet: null,
+                body: null,
             }
         },
         mounted() {
@@ -45,10 +39,10 @@
                 let vm = this;
 
                 axios.post(vm.route, {
-                    tweet: vm.tweet
+                    body: vm.body
                 })
                         .then(function (response) {
-                            vm.tweet = null;
+                            vm.body = null;
                             bus.$emit('new-tweet', response.data);
                         })
                         .catch(function (error) {

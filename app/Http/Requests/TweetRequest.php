@@ -24,7 +24,7 @@ class TweetRequest extends FormRequest
     public function rules()
     {
         return [
-            'tweet' => 'required|min:3|max:255', 
+            'body' => 'required|min:3|max:255', 
         ];
     }
 }
