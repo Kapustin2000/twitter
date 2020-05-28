@@ -3,7 +3,8 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-         <tweets :tweets="{{$tweets}}"></tweets>
+        <tweet-create :csrf="'{{csrf_token()}}'" :route="'{{route('tweet-create')}}'"></tweet-create>
+        <tweets :tweets="{{$tweets}}"></tweets>
     </div>
 </div>
 @endsection
