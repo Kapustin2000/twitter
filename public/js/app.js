@@ -1928,8 +1928,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['follows'],
+  data: function data() {
+    return {
+      followsData: false
+    };
+  },
   mounted: function mounted() {
-    console.log('Component mounted.');
+    var vm = this;
+
+    if (this.follows) {
+      this.followsData = this.follows;
+    }
+
+    bus.$on('follow', function (user) {
+      vm.followsData.push(user);
+    });
+    bus.$on('unfollow', function (user) {
+      vm.followsData = vm.followsData.filter(function (following) {
+        return following.id !== user.id;
+      });
+    });
   }
 });
 
@@ -1944,7 +1963,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -2013,6 +2031,12 @@ __webpack_require__.r(__webpack_exports__);
     toggleFollow: function toggleFollow() {
       var vm = this;
       axios.post(vm.path + '/follow').then(function (response) {
+        if (vm.isFollowingData) {
+          bus.$emit('unfollow', vm.user);
+        } else {
+          bus.$emit('follow', vm.user);
+        }
+
         vm.isFollowingData = !vm.isFollowingData;
       })["catch"](function (error) {
         console.log(error);
@@ -37738,56 +37762,54 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "bg-gray-200 border border-gray-300 rounded-lg py-4 px-6"
-      },
-      [
-        _c("h3", { staticClass: "font-bold text-xl mb-4" }, [
-          _vm._v("Following")
-        ]),
-        _vm._v(" "),
-        _c("ul", [
-          _c("li", [_vm._v("No friends yet!")]),
-          _vm._v(" "),
-          _c("li", [
-            _c("div", [
-              _c(
-                "a",
-                {
-                  staticClass: "flex items-center text-sm",
-                  attrs: { href: "http://127.0.0.1:8000/profiles/sss12" }
-                },
-                [
-                  _c("img", {
-                    staticClass: "rounded-full mr-2",
-                    attrs: {
-                      src: "http://127.0.0.1:8000/images/default-avatar.jpeg",
-                      alt: "",
-                      width: "40",
-                      height: "40"
-                    }
-                  }),
-                  _vm._v(
-                    "\n\n                    admin1213@email.com\n                "
+  return _c(
+    "div",
+    { staticClass: "bg-gray-200 border border-gray-300 rounded-lg py-4 px-6" },
+    [
+      _c("h3", { staticClass: "font-bold text-xl mb-4" }, [
+        _vm._v("Following")
+      ]),
+      _vm._v(" "),
+      _c(
+        "ul",
+        _vm._l(_vm.followsData, function(user) {
+          return _vm.followsData && _vm.followsData.length > 0
+            ? _c("li", { staticClass: "mt-2" }, [
+                _c("div", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "flex items-center text-sm",
+                      attrs: { href: "/profile/" + user.userName }
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "rounded-full mr-2",
+                        attrs: {
+                          src:
+                            "http://127.0.0.1:8000/images/default-avatar.jpeg",
+                          alt: "",
+                          width: "40",
+                          height: "40"
+                        }
+                      }),
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(user.userName) +
+                          "\n                "
+                      )
+                    ]
                   )
-                ]
-              )
-            ])
-          ])
-        ])
-      ]
-    )
-  }
-]
+                ])
+              ])
+            : _c("li", [_vm._v("No friends yet!")])
+        }),
+        0
+      )
+    ]
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -37836,11 +37858,11 @@ var render = function() {
                 [_vm._v("\n                    Edit Profile\n                ")]
               )
             : _c(
-                "a",
+                "button",
                 {
                   staticClass:
-                    "rounded-full border border-gray-300 py-2 px-4 text-black text-xs mr-2",
-                  attrs: { href: _vm.path + "/edit" },
+                    "bg-blue-500 rounded-full shadow py-2 px-4 text-white text-xs",
+                  attrs: { type: "submit" },
                   on: {
                     click: function($event) {
                       $event.preventDefault()
@@ -37848,7 +37870,11 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("\n                    Follow\n                ")]
+                [
+                  _vm.isFollowingData
+                    ? _c("span", [_vm._v("Unfollow")])
+                    : _c("span", [_vm._v("Follow")])
+                ]
               )
         ])
       ]),

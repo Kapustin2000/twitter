@@ -27,13 +27,12 @@
                     >
                         Edit Profile
                     </a>
-                    <a  :href="path + '/edit'"  @click.prevent="toggleFollow" v-else
-                        class="rounded-full border border-gray-300 py-2 px-4 text-black text-xs mr-2"
+                    <button  v-else type="submit" @click.prevent="toggleFollow"
+                            class="bg-blue-500 rounded-full shadow py-2 px-4 text-white text-xs"
                     >
-                        <!--<span v-if="isFollowingData">Unfollow</span>-->
-                        <!--<span v-else>Follow</span>-->
-                        Follow
-                    </a>
+                        <span v-if="isFollowingData">Unfollow</span>
+                        <span v-else>Follow</span>
+                    </button>
 
                 </div>
             </div>
@@ -74,6 +73,11 @@
 
                 axios.post( vm.path +'/follow')
                         .then(function (response) {
+                            if(vm.isFollowingData){
+                                bus.$emit('unfollow', vm.user);
+                            }else{
+                                bus.$emit('follow', vm.user);
+                            }
                             vm.isFollowingData = !vm.isFollowingData;
                         })
                         .catch(function (error) {

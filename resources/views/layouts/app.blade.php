@@ -39,7 +39,7 @@
                 <div class="lg:w-32">
                     <ul>
                         <li>
-                            <a class="font-bold text-lg mb-4 block" href="http://127.0.0.1:8000/tweets">
+                            <a class="font-bold text-lg mb-4 block" href="/">
                                 Home
                             </a>
                         </li>
@@ -71,7 +71,7 @@
 
                 @auth
                 <div class="lg:w-1/6">
-                    <friends-sidebar></friends-sidebar>
+                    <friends-sidebar :follows="{{json_encode(Auth::user()->follows)}}"></friends-sidebar>
                 </div>
                 @endauth
             </div>
