@@ -15,5 +15,17 @@ trait FollowAble
             'following_user_id'
         );
     }
+
+    public function follow(User $user)
+    {
+        return $this->follows->toggle($user);
+    }
+
+    public function following(User $user)
+    {
+        return $this->follows()
+            ->where('following_user_id', $user->id)
+            ->exists();
+    }
     
 }

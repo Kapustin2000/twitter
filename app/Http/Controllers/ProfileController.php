@@ -46,7 +46,7 @@ class ProfileController extends Controller
      */
     public function show(User $user)
     {
-        dd($user);
+        return view('profile.show',['user' => $user]);
     }
 
     /**
