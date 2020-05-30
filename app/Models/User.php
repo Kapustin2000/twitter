@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','userName'
     ];
 
     /**
@@ -40,6 +40,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function path($append = '')
+    {
+        $path = route('profile', $this);
 
+        return $append ? "{$path}/{$append}" : $path;
+    }
 
 }

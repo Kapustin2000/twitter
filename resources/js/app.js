@@ -16,6 +16,7 @@ Vue.component('tweet', require('./components/tweets/TweetComponent.vue').default
 
 Vue.component('profile-show', require('./components/profile/ProfileShowComponent.vue').default);
 
+
 Vue.component('friends-sidebar', require('./components/friends/FriendsSidebarComponent.vue').default);
 
  

@@ -28,7 +28,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile/{user:userName}', 'ProfileController@show')->name('profile');
 
 
-    Route::get('/profile/{user:userName}', 'ProfileController@show')->name('profile');
+    Route::get('/profile/{user:userName}/edit', 'ProfileController@edit')->middleware('can:edit,user');
+
+
 
     Route::post('/profile/{user:userName}/follow', 'FollowController@store');
 
