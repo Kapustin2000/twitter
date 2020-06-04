@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileRequest;
 use App\Models\User;
+use App\Services\AvatarService;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -67,9 +69,11 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProfileRequest $request, User $user, AvatarService $service)
     {
-        //
+        $service->handleImageUpload($request);
+
+        return redirect($user->path());
     }
 
     /**
