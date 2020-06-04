@@ -99,7 +99,7 @@
 
                 @auth
                 <div class="lg:w-1/6">
-                    <friends-sidebar :follows="{{json_encode(Auth::user()->follows)}}"></friends-sidebar>
+                    <x-friends-sidebar></x-friends-sidebar>
                 </div>
                 @endauth
             </div>

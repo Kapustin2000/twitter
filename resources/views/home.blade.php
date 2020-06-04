@@ -3,8 +3,12 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <tweet-create :csrf="'{{csrf_token()}}'" :route="'{{route('tweet-create')}}'"></tweet-create>
-        <tweets-wall :tweets="{{$tweets}}"></tweets-wall>
+        <x-tweet-create></x-tweet-create>
+    @forelse($tweets as $tweet)
+            <x-tweet :tweet="$tweet"></x-tweet>
+        @empty
+            <p>No replies</p>
+        @endforelse
     </div>
 </div>
 @endsection
