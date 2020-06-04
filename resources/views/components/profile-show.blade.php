@@ -21,18 +21,15 @@
             </div>
 
             <div class="flex">
+                @can('edit', $user)
                 <a
                     class="rounded-full border border-gray-300 py-2 px-4 text-black text-xs mr-2"
                 >
                     Edit Profile
                 </a>
-                <button  type="submit"
-                         class="bg-blue-500 rounded-full shadow py-2 px-4 text-white text-xs"
-                >
-                    <span >Unfollow</span>
-                    <span  >Follow</span>
-                </button>
-
+                @else
+                <x-follow-button :user="$user"></x-follow-button>
+                @endcan
             </div>
         </div>
 

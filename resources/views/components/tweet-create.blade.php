@@ -1,6 +1,6 @@
 <div class="container">
     <div class="border border-blue-400 rounded-lg px-8 py-6 mb-8">
-        <form method="POST">
+        <form method="POST" action="{{route('tweet-create')}}">
                 <textarea
                         name="body" placeholder="What's up doc?" v-model="body" required="required" autofocus="autofocus"
                         class="w-full"></textarea>

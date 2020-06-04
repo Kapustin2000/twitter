@@ -5,7 +5,7 @@
         @forelse($friends as $friend)
             <li class="mt-2">
                 <div>
-                    <a class="flex items-center text-sm">
+                    <a href="{{$friend->path()}}" class="flex items-center text-sm">
                         <img src="http://127.0.0.1:8000/images/default-avatar.jpeg" alt="" class="rounded-full mr-2" width="40" height="40">
                         {{$friend->userName}}
                     </a>
