@@ -45,7 +45,7 @@ trait LikeAble
 
     public function like($user = null, $liked = true)
     {
-        $this->likes()->updateOrCreate(
+       return  $this->likes()->updateOrCreate(
             [
                 'user_id' => $user ? $user->id : auth()->id(),
             ],

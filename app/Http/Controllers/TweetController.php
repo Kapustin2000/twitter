@@ -7,7 +7,7 @@ use App\Models\Tweet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class TweetsController extends Controller
+class TweetController extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -19,10 +19,11 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', 'TweetsController@index')->name('home');
-    Route::post('/tweet-create', 'TweetsController@store')->name('tweet-create');
+    Route::get('/', 'TweetController@index')->name('home');
+    Route::post('/tweet-create', 'TweetController@store')->name('tweet-create');
 
-
+    Route::post('/tweets/{tweet}/like', 'TweetLikesController@store')->name('like');
+    Route::delete('/tweets/{tweet}/like', 'TweetLikesController@destroy')->name('dislike');
 
 
     Route::get('/profile/{user:userName}', 'ProfileController@show')->name('profile');
