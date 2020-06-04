@@ -3,7 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use TijsVerkoyen\CssToInlineStyles\Css\Rule\Rule;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileRequest extends FormRequest
 {
@@ -24,12 +25,11 @@ class ProfileRequest extends FormRequest
      */
     public function rules()
     {
-        $user = $this->route('profile');
         return [
-            'username' => ['string', 'required', 'max:255', 'alpha_dash', Rule::unique('users')->ignore($user) ],
+            'username' => ['string', 'required', 'max:255', 'alpha_dash', Rule::unique('users')->ignore(Auth::user()) ],
             'name' => ['string', 'required', 'max:255'],
             'avatar' => ['sometimes','image'],
-            'email' => ['string', 'required', 'email', 'max:255', Rule::unique('users')->ignore($user),],
+            'email' => ['string', 'required', 'email', 'max:255', Rule::unique('users')->ignore(Auth::user()),],
             'password' => ['sometimes','string', 'required', 'min:8', 'max:255', 'confirmed',],
         ];
     }

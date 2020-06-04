@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Services\Interfaces;
-use Illuminate\Support\Facades\Request;
+namespace App\Services\Interfaces; 
 
 
 interface ImageUploadInterface{
-    public function handleImageUpload(Request $request);
+    public function handleImageUpload($image);
 }

@@ -32,7 +32,7 @@ Route::middleware(['auth'])->group(function () {
     Route::patch(
         '/profile/{user:username}',
         'ProfileController@update'
-    )->middleware('can:edit,user');
+    )->name('profile-edit')->middleware('can:edit,user');
     
     Route::get('/explore', 'ExploreController');
 
