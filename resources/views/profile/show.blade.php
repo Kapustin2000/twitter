@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-       <profile-show :user="{{$user}}" :auth-user="{{json_encode(Auth::user())}}" :is-following="{{json_encode(Auth::user()->following($user))}}"></profile-show>
-       <tweets-wall :tweets="{{$user->tweets}}" :user="{{$user}}"></tweets-wall>
+       <x-profile-show :user="$user"></x-profile-show>
+       <x-tweets-wall :tweets="$user->tweets"></x-tweets-wall>
 </div>
 @endsection
