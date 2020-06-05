@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,10 +29,12 @@ class ProfileRequest extends FormRequest
     {
         return [
             'username' => ['string', 'required', 'max:255', 'alpha_dash', Rule::unique('users')->ignore(Auth::user()) ],
+            'age' => Rule::in(User::SEXES),
             'name' => ['string', 'required', 'max:255'],
             'avatar' => ['sometimes','image'],
             'email' => ['string', 'required', 'email', 'max:255', Rule::unique('users')->ignore(Auth::user()),],
             'password' => ['sometimes','string', 'required', 'min:8', 'max:255', 'confirmed',],
+            'birthday' => ['before:5 years ago'],
         ];
     }
 }

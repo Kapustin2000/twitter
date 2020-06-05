@@ -77,7 +77,7 @@
                         </li>
 
                         <li>
-                            <a class="font-bold text-lg mb-4 block" href="/profile/{{Auth::user()->userName}}">
+                            <a class="font-bold text-lg mb-4 block" href="/profile/{{Auth::user()->username}}">
                                 Profile
                             </a>
                         </li>

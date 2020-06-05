@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileRequest;
 use App\Models\User;
-use App\Services\AvatarService;
 use App\Services\ProfileImageService;
 use Illuminate\Http\Request;
 
@@ -59,8 +58,8 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
-    {
-        return view('profile.edit',['user' => $user]);
+    { 
+        return view('profile.edit',['user' => $user, 'sexes' => User::SEXES]);
     }
 
     /**

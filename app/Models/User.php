@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','userName', 'avatar', 'banner'
+        'name', 'email', 'password','username', 'avatar', 'banner', 'sex', 'birthday'
     ];
 
     /**
@@ -38,6 +38,12 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+    ];
+
+
+    const SEXES = [
+        'man' => 1,
+        'woman'  => 2
     ];
 
     public function path($append = '')

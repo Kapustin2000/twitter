@@ -37,7 +37,7 @@
                             type="text"
                             name="username"
                             id="username"
-                            value="{{ $user->userName }}"
+                            value="{{ $user->username }}"
                             required
                      >
 
@@ -75,6 +75,51 @@
 
               <div class="mb-6">
                      <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                            for="birthday"
+                     >
+                            Birthday
+                     </label>
+
+                            <input class="border border-gray-400 p-2 w-full"
+                                   type="date"
+                                   name="birthday"
+                                   max="{{\Illuminate\Support\Carbon::now()}}"
+                                   id="birthday"
+                                   value="{{$user->birthday}}"
+                            >
+
+                     @error('birthday')
+                     <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                     @enderror
+              </div>
+
+
+
+              <div class="mb-6">
+                     <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                            for="sex"
+                     >
+                            Sex
+                     </label>
+
+
+                     <select class="border border-gray-400 p-2 w-full" name="sex">
+                            @forelse($sexes as $key => $sex)
+                                   <option {{ $user->sex === $sex ? 'selected' : '' }}
+                                           value="{{$sex}}">{{$key}}</option>
+                            @empty
+                                   <option value="0">Unknown</option>
+                            @endforelse
+                     </select>
+
+                     @error('sex')
+                     <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                     @enderror
+              </div>
+
+
+              <div class="mb-6">
+                     <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
                             for="email"
                      >
                             Email
@@ -104,7 +149,6 @@
                             type="password"
                             name="password"
                             id="password"
-                            required
                      >
 
                      @error('password')
@@ -123,7 +167,6 @@
                             type="password"
                             name="password_confirmation"
                             id="password_confirmation"
-                            required
                      >
 
                      @error('password_confirmation')
