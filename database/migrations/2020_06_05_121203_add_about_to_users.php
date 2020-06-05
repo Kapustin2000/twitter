@@ -14,7 +14,7 @@ class AddAboutToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->text('about')->after('password');
+            $table->text('about')->nullable()->after('password');
         });
     }
 

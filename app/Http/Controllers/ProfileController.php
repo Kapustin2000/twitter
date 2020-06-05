@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfileRequest;
 use App\Models\User;
 use App\Services\ProfileImageService;
+use App\Services\ProfileService;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -69,18 +70,11 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProfileRequest $request, User $user, ProfileImageService $service)
+    public function update(ProfileRequest $request, User $user, ProfileService $service)
     {
-        $images = array(
-              'avatar' => $service->handleImageUpload($request->file('avatar')),
-              'banner' => $service->handleImageUpload($request->file('banner')),
-        );
-
-        $request = array_merge($request->all(), $images);
-
+        $service = new ProfileService($user, new ProfileImageService());
         
-
-        $user->update($request);
+        $service->update($request);
 
         return redirect($user->path());
     }

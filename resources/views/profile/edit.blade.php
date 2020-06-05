@@ -209,7 +209,7 @@
                      <textarea class="border border-gray-400 p-2 w-full"
                             name="about"
                             id="about"
-                     ></textarea>
+                     >{{$user->about}}</textarea>
 
                      @error('about')
                      <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
