@@ -48,8 +48,11 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
-    {
-        return view('profile.show',['user' => $user]);
+    { 
+        return view('profile.show',['user' => $user, 'tweets' =>  $user->tweets()
+            ->withLikes()
+            ->paginate(50)
+        ]);
     }
 
     /**
