@@ -66,8 +66,8 @@ return [
         ],
         'images' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/avatars'),
-            'url' => env('APP_URL').'/images',
+            'root' => storage_path('app/public/profiles'),
+            'url' => env('APP_URL').'/profiles',
             'visibility' => 'public',
         ],
     ],

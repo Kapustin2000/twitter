@@ -61,13 +61,37 @@
                                    accept="image/*"
                             >
 
-                            <img src="{{ $user->avatar }}"
+                            <img src="{{ $user->getAvatar() }}"
                                  alt="your avatar"
                                  width="40"
                             >
                      </div>
 
                      @error('avatar')
+                     <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                     @enderror
+              </div>
+
+              <div class="mb-6">
+                     <img src="{{ $user->getBanner() }}"
+                          alt="your banner"
+                     >
+                     <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                            for="banner"
+                     >
+                            Banner
+                     </label>
+
+                            <input class="border border-gray-400 p-2 w-full"
+                                   type="file"
+                                   name="banner"
+                                   id="banner"
+                                   accept="image/*"
+                            >
+
+
+
+                     @error('banner')
                      <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                      @enderror
               </div>
@@ -170,6 +194,24 @@
                      >
 
                      @error('password_confirmation')
+                     <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                     @enderror
+              </div>
+
+
+              <div class="mb-6">
+                     <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                            for="about"
+                     >
+                           About
+                     </label>
+
+                     <textarea class="border border-gray-400 p-2 w-full"
+                            name="about"
+                            id="about"
+                     ></textarea>
+
+                     @error('about')
                      <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                      @enderror
               </div>

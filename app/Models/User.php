@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\FollowAble;
+use App\Traits\HasImages;
 use App\Traits\HasRoles;
 use App\Traits\HasTweets;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -11,7 +12,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasRoles, HasTweets, FollowAble;
+    use Notifiable, HasRoles, HasTweets, FollowAble, HasImages;
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','username', 'avatar', 'banner', 'sex', 'birthday'
+        'name', 'email', 'password','username', 'avatar', 'banner', 'sex', 'birthday', 'about'
     ];
 
     /**
