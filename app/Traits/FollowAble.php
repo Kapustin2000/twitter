@@ -2,6 +2,7 @@
 
 use App\Models\Follow;
 use App\Models\User;
+use App\Notifications\NewFollower;
 
 trait FollowAble
 {
@@ -18,7 +19,13 @@ trait FollowAble
 
     public function follow(User $user)
     {
-        return $this->follows()->toggle($user);
+        $follower = $this->follows()->toggle($user);
+        
+        if(count($follower['attached']) > 0 ){
+            $user->notify(new NewFollower($this));
+        }
+        
+        return $follower; 
     }
 
     public function following(User $user)
