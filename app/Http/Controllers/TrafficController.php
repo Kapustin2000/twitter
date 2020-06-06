@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Traffic;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class TrafficController extends Controller
 {
@@ -14,7 +17,17 @@ class TrafficController extends Controller
      */
     public function index()
     {
-        //
+
+        $traffic =  Traffic::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
+            ->selectRaw("COUNT(id) views, DATE_FORMAT(created_at, '%W') date")
+            ->addSelect(['man_sex' => User::selectRaw('TRIM(ROUND((SUM(sex=1) * 100 ) / COUNT(id), 0))')
+                ->whereColumn('user_id', 'users.id')
+            ])
+            ->groupBy('date')
+            ->get();
+
+
+        dd($traffic);
     }
 
     /**

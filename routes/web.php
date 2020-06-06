@@ -36,5 +36,8 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('/explore', 'ExploreController');
 
+
+    Route::get('/traffic', 'TrafficController@index');
+
 });
 
