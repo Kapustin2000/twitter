@@ -20,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','username', 'avatar', 'banner', 'sex', 'birthday', 'about'
+        'name', 'email', 'password', 'username', 'avatar', 'banner', 'sex', 'birthday', 'about'
     ];
 
     /**
@@ -44,7 +44,7 @@ class User extends Authenticatable
 
     const SEXES = [
         'man' => 1,
-        'woman'  => 2
+        'woman' => 2
     ];
 
     public function path($append = '')
@@ -55,10 +55,16 @@ class User extends Authenticatable
     }
 
 
-
     public function likes()
     {
         return $this->hasMany(Like::class);
     }
 
+
+    public function views()
+    {
+        return $this->hasMany(
+            Traffic::class, 'profile_user_id', 'id'
+        );
+    }
 }

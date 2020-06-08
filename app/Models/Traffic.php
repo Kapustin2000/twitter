@@ -8,13 +8,13 @@ class Traffic extends Model
 {
     protected $fillable = ['user_id', 'profile_user_id', 'created_at'];
     
-    public function views()
+    public function user()
     {
-        return $this->belongsToMany(
+        return $this->belongsTo(
             User::class,
-            'follows',
+            'traffic',
             'user_id',
-            'following_user_id'
+            'profile_user_id'
         );
     }
 }

@@ -15,12 +15,13 @@ class ExploreController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function __invoke()
-    {
+    { 
         $user = Auth::user();
         $following = $user->follows->pluck('id');
         $data  = User::whereNotIn('id',$following)
+            ->withCount('views')
             ->orWhere('id', '!=' ,$user->id)
-            ->orderByDesc('id')
+            ->orderByDesc('views_count')
             ->get();
         return view('explore.explore', ['users' => $data]);
     }
