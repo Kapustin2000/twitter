@@ -39,5 +39,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/traffic', 'TrafficController@index');
 
+    Route::get('/notifications', 'NotificationController@index');
+
+
+
 });
 
