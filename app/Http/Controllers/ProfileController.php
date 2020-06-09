@@ -73,7 +73,7 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProfileRequest $request, User $user, ProfileService $service)
+    public function update(ProfileRequest $request, User $user)
     {
         $service = new ProfileService($user, new ProfileImageService());
         
