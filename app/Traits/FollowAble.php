@@ -47,7 +47,7 @@ trait FollowAble
     }
 
     public function commonFollowers(){
-        return $this->followers()->whereIn('user_id', Auth::user()->follows);
+       return $this->followers()->whereIn('user_id', Auth::user()->follows()->pluck('follows.following_user_id'))->get();
     }
     
 }

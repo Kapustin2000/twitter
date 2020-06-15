@@ -13,4 +13,15 @@ class FollowController extends Controller
 
         return back();
     }
+
+    public function follows(User $user)
+    {
+        return view('follow.follows',['follows' =>  $user->follows()->paginate(50)]);
+    }
+
+    public function followers(User $user)
+    { 
+        return view('follow.followers',['followers' => $user->followers()->paginate(50)]);
+    }
+    
 }

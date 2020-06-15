@@ -9,9 +9,9 @@
                     <img src="{{$user->getAvatar()}}" alt="" class="rounded-full mr-2" width="40" height="40">
                     {{$user->username}}
 
-                    @if($common = $user->commonFollowers()->count() > 0)
-                         <span class="text-blue-500">(+{{$common}} common followers)</span>
-                    @endif
+
+
+                    <x-common-followers :user="$user"></x-common-followers>
                 </a>
 
             </div>
