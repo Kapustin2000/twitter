@@ -25,7 +25,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/tweets/{tweet}/like', 'TweetLikesController@store')->name('like');
     Route::delete('/tweets/{tweet}/like', 'TweetLikesController@destroy')->name('dislike');
 
-    Route::get('/profile/{user:username}/following', 'ProfileController@following')->name('profile-following')->middleware('traffic-watcher');
+    Route::get('/profile/{user:username}/follows', 'FollowController@follows')->name('profile-following')->middleware('traffic-watcher');
+    Route::get('/profile/{user:username}/followers', 'FollowController@followers')->name('profile-followers')->middleware('traffic-watcher');
 
     Route::get('/profile/{user:username}', 'ProfileController@show')->name('profile')->middleware('traffic-watcher');
     Route::get('/profile/{user:username}/edit', 'ProfileController@edit')->middleware('can:edit,user');
