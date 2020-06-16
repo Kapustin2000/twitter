@@ -10,6 +10,14 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
+
+    protected $service;
+
+    public function __construct(ProfileService $service)
+    {
+        $this->service = $service;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -75,9 +83,7 @@ class ProfileController extends Controller
      */
     public function update(ProfileRequest $request, User $user)
     {
-        $service = new ProfileService($user, new ProfileImageService());
-        
-        $service->update($request);
+        $this->service->update($user,$request);
 
         return redirect($user->path());
     }
