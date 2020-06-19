@@ -4,10 +4,7 @@ use App\Models\Tweet;
 
 trait HasTweets
 {
-    public function tweets()
-    {
-        return $this->hasMany(Tweet::class);
-    }
+  
 
     public function timeLine(){
         $following = $this->follows->pluck('id');

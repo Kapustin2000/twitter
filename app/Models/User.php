@@ -67,4 +67,46 @@ class User extends Authenticatable
             Traffic::class, 'profile_user_id', 'id'
         );
     }
+
+
+    public function follows()
+    {
+        return $this->belongsToMany(
+            User::class,
+            'follows',
+            'user_id',
+            'following_user_id'
+        );
+    }
+
+    public function followers()
+    {
+        return $this->belongsToMany(
+            User::class,
+            'follows',
+            'following_user_id',
+            'user_id'
+        );
+    }
+
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function abilities()
+    {
+        return $this->roles
+            ->map->abilities
+            ->flatten()->pluck('name')->unique();
+    }
+
+
+
+    public function tweets()
+    {
+        return $this->hasMany(Tweet::class);
+    }
+ 
 }
