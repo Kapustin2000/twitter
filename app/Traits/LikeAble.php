@@ -17,16 +17,18 @@ trait LikeAble
         );
     }
 
-    public function isLikedBy(User $user)
+    public function isLikedBy(User $user = null)
     {
+        $user = $user ?: auth()->user();
         return (bool) $user->likes
             ->where('tweet_id', $this->id)
             ->where('liked', true)
             ->count();
     }
 
-    public function isDislikedBy(User $user)
+    public function isDislikedBy(User $user = null)
     {
+        $user = $user ?: auth()->user();
         return (bool) $user->likes
             ->where('tweet_id', $this->id)
             ->where('liked', false)
