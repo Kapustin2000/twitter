@@ -17,6 +17,10 @@ trait FollowAble
         
         return $follower; 
     }
+    
+    public function unfollow(User $user) {
+        return $this->follow($user);
+    }
 
     public function following(User $user)
     {
