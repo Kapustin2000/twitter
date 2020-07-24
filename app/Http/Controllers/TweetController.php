@@ -6,6 +6,7 @@ use App\Http\Requests\TweetRequest;
 use App\Models\Tweet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 
 class TweetController extends Controller
 {
@@ -15,8 +16,8 @@ class TweetController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { 
-        return view('home',['tweets' => Auth::user()->timeLine()]);
+    {
+        return view('home',['tweets' => Auth::user()->cachedTimeLine()]);
     }
 
 
@@ -28,7 +29,9 @@ class TweetController extends Controller
      */
     public function store(TweetRequest $request)
     {
-        return Auth::user()->tweets()->create($request->all())->load('user');
+        Auth::user()->tweets()->create($request->all());
+ 
+        return back();
     }
 
     

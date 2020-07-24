@@ -1,6 +1,7 @@
 <?php namespace App\Traits;
 
 use App\Models\Tweet;
+use Illuminate\Support\Facades\Cache;
 
 trait HasTweets
 {
@@ -15,6 +16,12 @@ trait HasTweets
             ->with('user')
             ->orderByDesc('id')
             ->get();
+    }
+    
+    public function cachedTimeLine(){
+        return Cache::rememberForever('users.'.auth()->user()->id.'.timeline', function () {
+            return $this->timeLine();
+        });
     }
  
 }
