@@ -3,8 +3,11 @@
 namespace Tests\Feature;
 
 use App\Models\User;
+use App\Notifications\NewFollower;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Notification;
+use Mockery\Matcher\Not;
 use Tests\TestCase;
 
 class FollowTest extends TestCase
@@ -23,8 +26,14 @@ class FollowTest extends TestCase
     /** @test */
     public function user_can_follow_user()
     {
+        Notification::fake();
+
         $this->user->follow($this->secondUser);
 
+        Notification::assertSentTo(
+           $this->secondUser, NewFollower::class
+        );
+        
         $this->assertDatabaseHas('follows', [
                 'user_id' => $this->user->id,
                 'following_user_id' => $this->secondUser->id
