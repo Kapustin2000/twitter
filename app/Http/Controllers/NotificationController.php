@@ -8,6 +8,6 @@ use Illuminate\Support\Facades\Auth;
 class NotificationController extends Controller
 {
     public function index(){
-        return view('notifications.index', ['notifications' => Auth::user()->unreadNotifications->sortBy('created_at')]);
+        return view('notifications.index', ['notifications' => user()->unreadNotifications->sortBy('created_at')]);
     }
 }

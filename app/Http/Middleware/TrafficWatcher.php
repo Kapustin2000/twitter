@@ -26,9 +26,9 @@ class TrafficWatcher
     {
         $following = $request->route()->parameter('user');
 
-        if($following->id !== Auth::user()->id){
+        if($following->id !== user()->id){
             Traffic::firstOrCreate(
-                ['user_id' => Auth::user()->id , 'profile_user_id' => $following->id, 'created_at' => Carbon::today()]
+                ['user_id' => user()->id , 'profile_user_id' => $following->id, 'created_at' => Carbon::today()]
             );
         }
 

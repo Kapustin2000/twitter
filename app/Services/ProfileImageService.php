@@ -30,7 +30,7 @@ Class ProfileImageService implements ImageUploadInterface{
 
 
     protected function save(){
-        $filePath = '/'.Auth::id();
+        $filePath = '/'.user()->id;
 
         return Storage::disk('images')->put($filePath, $this->image);
     }

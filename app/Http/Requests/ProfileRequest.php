@@ -28,11 +28,11 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'username' => ['string', 'required', 'max:255', 'alpha_dash', Rule::unique('users')->ignore(Auth::user()) ],
+            'username' => ['string', 'required', 'max:255', 'alpha_dash', Rule::unique('users')->ignore(user()) ],
             'age' => Rule::in(User::SEXES),
             'name' => ['string', 'required', 'max:255'],
             'avatar' => ['sometimes','image'],
-            'email' => ['string', 'required', 'email', 'max:255', Rule::unique('users')->ignore(Auth::user()),],
+            'email' => ['string', 'required', 'email', 'max:255', Rule::unique('users')->ignore(user()),],
             'password' => ['sometimes','string', 'required', 'min:8', 'max:255', 'confirmed',],
             'birthday' => ['before:5 years ago'],
         ];

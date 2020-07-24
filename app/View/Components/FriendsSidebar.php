@@ -16,7 +16,7 @@ class FriendsSidebar extends Component
      */
     public function __construct()
     {
-        $this->friends = Auth::user()->follows;
+        $this->friends = user()->follows;
     }
 
     /**

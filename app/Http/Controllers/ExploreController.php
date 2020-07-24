@@ -15,8 +15,8 @@ class ExploreController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function __invoke()
-    { 
-        $user = Auth::user();
+    {
+        $user = user();
         $following = $user->follows->pluck('id');
         $data  = User::whereNotIn('id',$following)
             ->withCount('views')

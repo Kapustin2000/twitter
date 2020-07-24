@@ -17,7 +17,7 @@ class TweetController extends Controller
      */
     public function index()
     {
-        return view('home',['tweets' => Auth::user()->cachedTimeLine()]);
+        return view('home',['tweets' => user()->cachedTimeLine()]);
     }
 
 
@@ -29,7 +29,7 @@ class TweetController extends Controller
      */
     public function store(TweetRequest $request)
     {
-        Auth::user()->tweets()->create($request->all());
+        user()->tweets()->create($request->all());
  
         return back();
     }
