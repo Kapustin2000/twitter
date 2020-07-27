@@ -9,6 +9,7 @@ use App\Traits\HasTweets;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Redis;
 
 class User extends Authenticatable
 {
@@ -107,6 +108,14 @@ class User extends Authenticatable
     public function tweets()
     {
         return $this->hasMany(Tweet::class);
+    }
+
+    public function getRecentlyVisitedProfiles($count = 4) {
+
+        $recentlyVisitedIds = Redis::zrevrange('user.'.$this->id.'.visited', 0, $count);
+
+        return self::whereIn('id', $recentlyVisitedIds)->get();
+
     }
  
 }

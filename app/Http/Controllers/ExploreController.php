@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\Redis;
 
 class ExploreController extends Controller
 {
@@ -16,13 +17,12 @@ class ExploreController extends Controller
      */
     public function __invoke()
     {
-        $user = user();
-        $following = $user->follows->pluck('id');
-        $data  = User::whereNotIn('id',$following)
-            ->withCount('views')
-            ->orWhere('id', '!=' ,$user->id)
-            ->orderByDesc('views_count')
-            ->get();
-        return view('explore.explore', ['users' => $data]);
+        $recentlyVisited = user()->getRecentlyVisitedProfiles(4);
+
+        $following = user()->follows->pluck('id');
+ 
+        $users  = User::whereNotIn('id', $following->merge($recentlyVisited->pluck('id'), user()->id))->get();
+        
+        return view('explore.explore', ['users' => $users, 'recentlyVisited' => $recentlyVisited]);
     }
 }
