@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redis;
 use phpDocumentor\Reflection\Types\Collection;
 
 class TrafficController extends Controller
@@ -18,30 +19,28 @@ class TrafficController extends Controller
      */
     public function index()
     {
-        /**
-         *
-            TODO MOVE TO ReportGeneratorService
-         *
-         */
+        $visits = Redis::zRangeByScore('user.'.user()->id.'.visited', strtotime('monday this week'), strtotime('sunday this week'));
 
-       $report = collect(
-            [
-                'views' => Traffic::whereBetween('traffic.created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
-                    ->selectRaw("COUNT(traffic.id) views, DATE_FORMAT(traffic.created_at, '%W') date")
-                    ->groupBy('date')->get(),
-                
-                'sex' =>  Traffic::whereBetween('traffic.created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
-                    ->leftJoin('users', 'users.id', 'traffic.user_id')
-                    ->selectRaw("SUM(IF(sex=1,1,0)) / COUNT(*) * 100 AS MalePercent, SUM(IF(sex=2,1,0)) / COUNT(*) * 100 AS FemalePercent")
-                    ->groupBy('sex'),
-                'devices' => Traffic::whereBetween('traffic.created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
-                    ->selectRaw("COUNT(id) as count, device")
-                    ->groupBy('device')
-            ]
-        );
-        
-        
-        dd($report);
+        dd($visits);
+
+//       $report = collect(
+//            [
+//                'views' => Traffic::whereBetween('traffic.created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
+//                    ->selectRaw("COUNT(traffic.id) views, DATE_FORMAT(traffic.created_at, '%W') date")
+//                    ->groupBy('date')->get(),
+//                
+//                'sex' =>  Traffic::whereBetween('traffic.created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
+//                    ->leftJoin('users', 'users.id', 'traffic.user_id')
+//                    ->selectRaw("SUM(IF(sex=1,1,0)) / COUNT(*) * 100 AS MalePercent, SUM(IF(sex=2,1,0)) / COUNT(*) * 100 AS FemalePercent")
+//                    ->groupBy('sex'),
+//                'devices' => Traffic::whereBetween('traffic.created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
+//                    ->selectRaw("COUNT(id) as count, device")
+//                    ->groupBy('device')
+//            ]
+//        );
+//        
+//        
+//        dd($report);
        
  
     }
