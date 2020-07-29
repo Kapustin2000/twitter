@@ -8,14 +8,16 @@ use Illuminate\View\Component;
 class ProfileShow extends Component
 {
     public $user;
+    public $counters;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct(User $user, $counters)
     {
         $this->user = $user;
+        $this->counters = $counters;
     }
 
     /**

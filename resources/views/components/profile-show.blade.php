@@ -25,12 +25,12 @@
                 <a href="{{$user->path('follows')}}"
                    class="rounded-full border border-gray-300 py-2 px-4 text-black text-xs mr-2"
                 >
-                     Follows {{$user->follows()->count()}}
+                     Follows {{$counters->follows}}
                 </a>
                 <a href="{{$user->path('followers')}}"
                    class="rounded-full border border-gray-300 py-2 px-4 text-black text-xs mr-2"
                 >
-                    Following {{$user->followers()->count()}}
+                    Following {{$counters->followers}}
                 </a>
                 @can('edit', $user)
                 <a href="{{$user->path('edit')}}"
