@@ -17,7 +17,8 @@ class TweetController extends Controller
      */
     public function index()
     {
-        return view('home',['tweets' => user()->cachedTimeLine()]);
+        // user()->cachedTimeLine();
+        return view('home',['tweets' => user()->timeLine()]);
     }
 
 
